@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Handjet, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import Nav from "@/app/components/Nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,9 +52,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${handjet.variable} ${spaceGrotesk.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${handjet.variable} ${spaceGrotesk.variable} antialiased min-h-screen bg-(--background) text-(--foreground) font-[family-name:var(--font-space-grotesk)]`}
       >
-        {children}
+        <Nav />
+        <main>
+          {children}
+        </main>
+        <footer className="border-t border-(--secondary-accent) px-6 py-8 lg:px-12 text-sm text-(--secondary-accent) text-center">
+          <p>Disconnect Society — disconnectsociety.org</p>
+        </footer>
       </body>
     </html>
   );
